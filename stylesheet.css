@@ -3,14 +3,20 @@ label {
 	display: block;
 }
 button {
-	margin: 20px 10px;
+	margin: 30px 10px;
 }
 body {
 	width: 500px;
 	margin: auto;
 }
+.question + .question,
+.result + .question {
+	padding: 15px 0 0 0;
+}
 .result {
+	padding: 3px;
 	border: 1px solid red;
+	position: absolute;
 }
 .right {
 	border-color: green;
