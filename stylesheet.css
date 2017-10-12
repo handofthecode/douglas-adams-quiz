@@ -1,6 +1,4 @@
-/*body {
-	margin: 20px 100px;
-}*/
+
 label {
 	display: block;
 }
@@ -8,7 +6,7 @@ button {
 	margin: 20px 10px;
 }
 body {
-	max-width: 400px;
+	width: 500px;
 	margin: auto;
 }
 .result {

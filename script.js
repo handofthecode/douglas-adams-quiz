@@ -38,11 +38,10 @@ var quiz = {
     return compiledTemplate(context);
   },
   registerHandlers: function() {
-    $('#submit').on('click', this.handleSubmit.bind(this));
-    $('#reset').on('click', this.handleReset.bind(this));
+    this.$submit.on('click', this.handleSubmit.bind(this));
+    this.$reset.on('click', this.handleReset.bind(this));
   },
   handleSubmit: function(e) {
-    var $radios = $('input[type=radio]');
     var answers = this.data.answerKey;
     e.preventDefault();
     for (id in answers) {
@@ -56,10 +55,12 @@ var quiz = {
         this.wrongAnswer(answer, id);
       }
     }
+    this.$submit.attr('disabled', true);
   },
   handleReset: function(e) {
     $('.result').remove();
     $('input[type=radio]:checked').attr('checked', false);
+    this.$submit.attr('disabled', false)
   },
   noAnswer: function(answer, id) {
     var template = $('#no-answer-template');
@@ -74,9 +75,13 @@ var quiz = {
     $('#' + id).after(this.loadTemplate(template, {}))
   },
   init: function() {
+    this.$submit = $('#submit');
+    this.$reset = $('#reset');
+
     this.data = quizData;
     this.loadQuestions();
     this.registerHandlers();
+
   }
 }
 
