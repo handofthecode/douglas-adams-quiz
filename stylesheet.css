@@ -1,0 +1,19 @@
+/*body {
+	margin: 20px 100px;
+}*/
+label {
+	display: block;
+}
+button {
+	margin: 20px 10px;
+}
+body {
+	max-width: 400px;
+	margin: auto;
+}
+.result {
+	border: 1px solid red;
+}
+.right {
+	border-color: green;
+}

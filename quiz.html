@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<title>Quiz</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"
+	  integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+	  crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+</head>
+<body>
+	<header>
+		<h1>Quiz</h1>
+	</header>
+	<div id="quiz">
+		<script id="entry-template" type="text/x-handlebars-template">
+			<div class="question" id={{id}}>
+				<div class="description">
+					<p>Q{{id}}. {{{description}}}</p>
+				</div>
+				<div class="options">
+					<label>
+						<input type="radio" name={{id}} value="{{options.[0]}}">{{options.[0]}}
+					</label>
+					<label>
+						<input type="radio" name={{id}} value="{{options.[1]}}">{{options.[1]}}
+					</label>
+					<label>
+						<input type="radio" name={{id}} value="{{options.[2]}}">{{options.[2]}}
+					</label>
+					<label>
+						<input type="radio" name={{id}} value="{{options.[3]}}">{{options.[3]}}
+					</label>
+				</div>
+			</div>
+		</script>
+		<script id="wrong-answer-template" type="text/x-handlebars-template">
+				<div class="result">
+					Wrong Answer. The correct answer is: "{{answer}}".
+				</div>
+		</script>
+		<script id="no-answer-template" type="text/x-handlebars-template">
+			<div class="result">
+				You did not answer this question. The correct answer is: "{{answer}}".
+			</div>
+		</script>
+		<script id="right-answer-template" type="text/x-handlebars-template">
+			<div class="result right">
+				Correct Answer!
+			</div>
+		</script>
+	</div>
+	<button id="submit" type="submit">Submit Quiz</button>
+	<button id="reset" type="reset">Reset</button>
+	<script src="script.js"></script>
+</body>
+</html>
